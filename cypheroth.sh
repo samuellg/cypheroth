@@ -112,7 +112,7 @@ runQueries() {
         if [ $? -eq 0 ]; then
             echo -e "Saved to $SAVEPATH"
             # Removes double quotes from output file
-            tr -d '"' <$SAVEPATH 1<>$SAVEPATH
+            sed -i 's/"//g' $SAVEPATH
             # If verbosity is enabled...
             if [ "$VERBOSE" == "TRUE" ]; then
                 echo "Sample:"
